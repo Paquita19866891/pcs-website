@@ -12,9 +12,9 @@
   --bg2:#060a15;
   --bg3:#0a0f1e;
   --gold:#e8ac22;
-  --goldf:#ffd060;
-  --goldl:#fff0b0;
-  --goldd:#b07808;
+  --goldf:#ffd878;
+  --goldl:#fff4c2;
+  --goldd:#a06a05;
   --goldborder:rgba(232,172,34,0.18);
   --text:#f4edd8;
   --muted:#8a7e60;
@@ -79,7 +79,8 @@ h1{font-family:'Cormorant Garamond',serif;
   letter-spacing:-.01em;max-width:920px;margin-bottom:8px;
   text-shadow:0 2px 40px rgba(0,0,0,0.8), 0 0 80px rgba(232,172,34,0.2);
   animation:fadeUp .9s .45s ease both}
-h1 em{font-style:italic;color:var(--goldf)}
+h1 em{font-style:italic;background:linear-gradient(160deg,#fff4c2 0%,#ffd878 20%,#e8ac22 50%,#c88a0a 75%,#ffd060 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 .hero-sub{font-family:'Cormorant Garamond',serif;
   font-size:clamp(18px,2.8vw,34px);font-weight:400;font-style:italic;
@@ -95,7 +96,7 @@ h1 em{font-style:italic;color:var(--goldf)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-.btn-gold{background:linear-gradient(135deg,var(--goldf) 0%,var(--gold) 60%,var(--goldd) 100%);
+.btn-gold{background:linear-gradient(160deg,#fff4c2 0%,#ffd878 18%,#e8ac22 45%,#c88a0a 68%,#e8ac22 82%,#ffd060 100%);
   color:#04020a;padding:14px 40px;border-radius:4px;text-decoration:none;
   font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
   transition:all .25s;box-shadow:0 4px 24px rgba(232,172,34,0.25)}
@@ -115,21 +116,25 @@ h1 em{font-style:italic;color:var(--goldf)}
 .stat{flex:1;min-width:150px;padding:26px 18px;text-align:center;border-right:1px solid var(--goldborder)}
 .stat:last-child{border-right:none}
 .stat-v{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;
-  color:var(--goldf);line-height:1;margin-bottom:5px}
+  background:linear-gradient(160deg,#fff4c2 0%,#ffd878 25%,#e8ac22 55%,#c88a0a 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:5px}
 .stat-l{font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
 
 /* ── SECTIONS ── */
 .sec{position:relative;z-index:1}
 .inner{max-width:1100px;margin:auto;padding:100px 32px}
 .sec-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);font-weight:600;margin-bottom:14px}
+  background:linear-gradient(90deg,#ffd878,#e8ac22);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;font-weight:600;margin-bottom:14px}
 .sec-title{font-family:'Cormorant Garamond',serif;
   font-size:clamp(30px,4vw,54px);font-weight:700;letter-spacing:-.01em;
   line-height:1.05;margin-bottom:16px}
 .sec-desc{color:var(--muted2);font-size:15px;line-height:1.8;max-width:520px;font-weight:300}
-.gold-rule{width:40px;height:2px;
-  background:linear-gradient(90deg,var(--goldf),var(--goldd));
-  border-radius:2px;margin-bottom:44px;margin-top:4px}
+.gold-rule{width:40px;height:3px;
+  background:linear-gradient(90deg,#fff4c2,#ffd878,#e8ac22,#a06a05);
+  border-radius:2px;margin-bottom:44px;margin-top:4px;
+  box-shadow:0 0 10px rgba(232,172,34,0.4)}
 
 /* ── SERVICES ── */
 .svc-bg{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
@@ -170,6 +175,23 @@ h1 em{font-style:italic;color:var(--goldf)}
 .vid-wrap iframe{width:100%;height:195px;display:block;border:none}
 .vid-label{padding:12px 16px;font-size:11px;color:var(--muted);
   letter-spacing:.06em;text-transform:uppercase}
+.vid-thumb{text-decoration:none;display:block}
+.vid-thumb-inner{position:relative;overflow:hidden;height:195px}
+.vid-thumb-inner img{width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease;display:block}
+.vid-thumb:hover .vid-thumb-inner img{transform:scale(1.05)}
+.vid-play{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;background:rgba(2,5,12,0.35);
+  transition:background .3s}
+.vid-thumb:hover .vid-play{background:rgba(2,5,12,0.15)}
+.play-btn{width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#fff0b0 0%,#ffd060 30%,#e8ac22 60%,#b07808 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:#02050c;padding-left:4px;
+  box-shadow:0 0 30px rgba(232,172,34,0.5);
+  transition:transform .3s,box-shadow .3s}
+.vid-thumb:hover .play-btn{transform:scale(1.12);
+  box-shadow:0 0 50px rgba(232,172,34,0.8)}
 
 /* ── QUOTE ── */
 .quote-wrap{position:relative;z-index:1;margin:0 32px 80px;
@@ -180,7 +202,9 @@ h1 em{font-style:italic;color:var(--goldf)}
   color:rgba(232,172,34,0.1);margin-bottom:4px}
 .q-text{font-family:'Cormorant Garamond',serif;
   font-size:clamp(22px,3vw,40px);font-weight:600;font-style:italic;
-  color:var(--goldf);max-width:740px;margin:0 auto 22px;line-height:1.3}
+  background:linear-gradient(160deg,#fff4c2 0%,#ffd878 25%,#e8ac22 55%,#b07808 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  max-width:740px;margin:0 auto 22px;line-height:1.3}
 .q-attr{font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
 
 /* ── CHANNELS ── */
@@ -194,7 +218,9 @@ h1 em{font-style:italic;color:var(--goldf)}
   box-shadow:0 12px 32px rgba(232,172,34,0.08)}
 .ch-platform{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--muted)}
 .ch-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--text);line-height:1.2}
-.ch-handle{font-size:13px;color:var(--goldf);font-weight:500}
+.ch-handle{font-size:13px;font-weight:500;
+  background:linear-gradient(90deg,#ffd878,#e8ac22);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ch-body{font-size:13px;color:var(--muted2);font-weight:300;line-height:1.7}
 .ch-arrow{margin-top:auto;font-size:22px;color:var(--muted);transition:all .2s}
 .ch-card:hover .ch-arrow{color:var(--goldf);transform:translateX(6px)}
@@ -328,9 +354,27 @@ footer{position:relative;z-index:1;border-top:1px solid var(--goldborder);
       <a href="https://www.youtube.com/@pcsdesignandengineering" target="_blank" class="btn-ghost" style="white-space:nowrap;align-self:flex-end">All videos →</a>
     </div>
     <div class="vid-grid reveal">
-      <div class="vid-wrap"><iframe src="https://www.youtube.com/embed/T_CympkUChw?mute=1" allowfullscreen loading="lazy"></iframe><div class="vid-label">BIM Coordination — Project 01</div></div>
-      <div class="vid-wrap"><iframe src="https://www.youtube.com/embed/zqUWsKSk8bc?mute=1" allowfullscreen loading="lazy"></iframe><div class="vid-label">Clash Detection — Project 02</div></div>
-      <div class="vid-wrap"><iframe src="https://www.youtube.com/embed/drCAa954M8?mute=1" allowfullscreen loading="lazy"></iframe><div class="vid-label">4D Simulation — Project 03</div></div>
+      <a href="https://www.youtube.com/watch?v=T_CympkUChw" target="_blank" class="vid-wrap vid-thumb">
+        <div class="vid-thumb-inner">
+          <img src="https://img.youtube.com/vi/T_CympkUChw/maxresdefault.jpg" alt="BIM Coordination" onerror="this.src='https://img.youtube.com/vi/T_CympkUChw/hqdefault.jpg'">
+          <div class="vid-play"><div class="play-btn">&#9654;</div></div>
+        </div>
+        <div class="vid-label">BIM Coordination — Project 01</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=zqUWsKSk8bc" target="_blank" class="vid-wrap vid-thumb">
+        <div class="vid-thumb-inner">
+          <img src="https://img.youtube.com/vi/zqUWsKSk8bc/maxresdefault.jpg" alt="Clash Detection" onerror="this.src='https://img.youtube.com/vi/zqUWsKSk8bc/hqdefault.jpg'">
+          <div class="vid-play"><div class="play-btn">&#9654;</div></div>
+        </div>
+        <div class="vid-label">Clash Detection — Project 02</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=drCAa954M8" target="_blank" class="vid-wrap vid-thumb">
+        <div class="vid-thumb-inner">
+          <img src="https://img.youtube.com/vi/drCAa954M8/maxresdefault.jpg" alt="4D Simulation" onerror="this.src='https://img.youtube.com/vi/drCAa954M8/hqdefault.jpg'">
+          <div class="vid-play"><div class="play-btn">&#9654;</div></div>
+        </div>
+        <div class="vid-label">4D Simulation — Project 03</div>
+      </a>
     </div>
   </div>
 </section>
@@ -415,13 +459,15 @@ const TEAL  = '#1dd4b4';
 // ── METALLIC color helper ─────────────────────────────────────────────────
 function metalGold(ctx, x, y, w, h, angle=0){
   const g = ctx.createLinearGradient(x,y,x+w,y+h);
-  g.addColorStop(0,   '#fff0b0');
-  g.addColorStop(0.15,'#ffd060');
-  g.addColorStop(0.35,'#e8ac22');
-  g.addColorStop(0.55,'#c88a0a');
-  g.addColorStop(0.75,'#e8ac22');
-  g.addColorStop(0.88,'#ffd060');
-  g.addColorStop(1,   '#b07808');
+  g.addColorStop(0,   '#fffbe0');
+  g.addColorStop(0.08,'#fff0b0');
+  g.addColorStop(0.2, '#ffd878');
+  g.addColorStop(0.4, '#e8ac22');
+  g.addColorStop(0.55,'#a06a05');
+  g.addColorStop(0.7, '#e8ac22');
+  g.addColorStop(0.85,'#ffd878');
+  g.addColorStop(0.94,'#fff0b0');
+  g.addColorStop(1,   '#a06a05');
   return g;
 }
 
@@ -716,15 +762,15 @@ let t=0;
   drawHex(t);
   drawLaser(t*.7);
 
-  ctx.globalAlpha=0.08;
+  ctx.globalAlpha=0.28;
 prog+=SPEED;
   if(prog>FLOORS+3) prog=0;
   drawBuilding(t);
 
-  ctx.globalAlpha=0.5;
+  ctx.globalAlpha=0.65;
 particles.forEach(p=>{p.update();p.draw()});
   drawConnections();
-  ctx.globalAlpha=0.55;
+  ctx.globalAlpha=0.75;
 chips.forEach(c=>{c.update();c.draw()});
 ctx.globalAlpha=1;
 
